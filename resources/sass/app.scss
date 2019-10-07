@@ -1,0 +1,31 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.title{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #555;
+}
+.product-row{
+    background: #fff;
+}
+.image_product{
+    height: 32vh;
+}
+.btn_wishlist{
+    color: #E51D17;
+    top: 27px;
+    z-index: 99;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: #000 1px 1px;
+}
+.price{
+    font-weight: bold;
+}
