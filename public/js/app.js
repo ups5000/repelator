@@ -49365,19 +49365,33 @@ $(document).ready(function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
-  $('.btn_wishlist').click(function (e) {
+  $(document).on('click', '.nofav', function (e) {
     e.preventDefault();
     e.stopPropagation();
     var id = $(this).data('id_product');
     var data = {
       id_product: id
     };
-    ajaxRequest('add_wish', data, cb_add_wish);
+    ajaxRequest('ajax_add_wish', data, cb_add_wish);
+  });
+  $(document).on('click', '.isfav', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var id = $(this).data('id_product');
+    var data = {
+      id_product: id
+    };
+    ajaxRequest('ajax_del_wish', data, cb_del_wish);
   });
 });
 
-function cb_add_wish() {
-  alert('cb_add_wish');
+function cb_del_wish(e) {
+  $("div").find("[data-id_product=" + e.id + "]").text('+Add Fav!').css('color', '#E51D17').removeClass('isfav').addClass('nofav');
+  $("div").find("[data-id_product=" + e.id + "]").remove('.product_private_wishlist');
+}
+
+function cb_add_wish(e) {
+  $("div").find("[data-id_product=" + e.id + "]").text('Is Fav').css('color', '#66da20').addClass('isfav').removeClass('nofav');
 }
 
 function ajaxRequest(file, data, Funcion) {

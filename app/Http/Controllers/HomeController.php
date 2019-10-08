@@ -25,8 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function wishlist(){
-        echo "ok";
-        //return view('home');
-    }
 }

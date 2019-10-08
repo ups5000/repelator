@@ -10660,11 +10660,15 @@ a.text-dark:focus {
 
 .btn_wishlist {
   color: #E51D17;
-  top: 27px;
+  top: 20px;
   z-index: 99;
   cursor: pointer;
   font-weight: bold;
   text-shadow: #000 1px 1px;
+}
+
+.isfav {
+  color: #66da20;
 }
 
 .price {

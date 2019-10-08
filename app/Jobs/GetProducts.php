@@ -81,8 +81,9 @@ class GetProducts implements ShouldQueue
             foreach( $arr as $obj => $row ){
                 if( DB::table('products')->where('title', $row['title'])->doesntExist() ){
                     $product = new Product;
+
                     $product->title = $row['title'];
-                    $product->price = $row['price'];
+                    $product->price = str_replace(',','',str_replace('€','',$row['price']) );
                     $product->url_orig = $row['url_ori'];
                     $product->img_url = $row['url_img'];
                     $product->category = 'category';

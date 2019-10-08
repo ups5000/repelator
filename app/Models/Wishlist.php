@@ -20,4 +20,7 @@ class Wishlist extends Model
     protected $casts = [
 
     ];
+    public function get_products_wishlist(){
+        return $this->belongsToMany('App\Product','products_wishlists','id_wish','id_product');
+    }
 }

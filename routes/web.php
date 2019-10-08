@@ -18,8 +18,7 @@ Route::get('/','IndexController@index')->name('index');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@home');
-//Route::get('/rep','CrawlerController@get_productsByUrl');
-//Route::get('/index','CrawlerController@index');
-Route::get('wishlist','HomeController@wishlist');
-Route::post('add_wish','WishListController@add_wish');
+Route::any('ajax_add_wish','WishListController@ajax_add_wishProducts')->middleware('auth');
+Route::any('ajax_del_wish','WishListController@ajax_del_wishProducts')->middleware('auth');
+Route::get('wishlist','WishListController@index')->name('wishlist')->middleware('auth');
+Route::get('share/{code}','WishListController@share')->name('publicwishlist');
